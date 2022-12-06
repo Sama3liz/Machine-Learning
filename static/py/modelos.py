@@ -39,7 +39,7 @@ def tipoClase(pred):
     
 def modeloup(collection):
     
-    collection=collection[1:100]
+    # collection=collection[1:100]
     resp=[]
     for i in collection:
         temp=[]
