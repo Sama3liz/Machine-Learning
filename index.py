@@ -6,7 +6,6 @@ import static.py.modelos as m
 import static.py.functions as f
 import os
 from werkzeug.utils import secure_filename
-import xlrd
 
 # Config
 app = Flask(__name__)
@@ -57,6 +56,7 @@ def upload():
             #BORRAR ARCHIVO
             os.remove(file)
             resp_analisis = os.path.join(app.root_path, app.config['UPLOAD_FOLDER'])
+            
             return send_from_directory(directory=resp_analisis, path='analisis.xlsx')
         else:
             print("Tipo de archivo no permitido!")
