@@ -16,12 +16,10 @@ loaded_tf_idf = pickle.load(open("static/bin/tf_idf", 'rb'))  # Con esto abres e
 index_labels = ['Modelo 1','Modelo 2','Modelo 3','Modelo 4','Modelo 5']
 
 def nlp(text):
-    print(text)
     text = re.sub('[^A-Za-z\u00C0-\u017F]+',' ',str(text))
     text = text.lower()
     tokens = word_tokenize(text)
     diccionario = [word for word in tokens if not word in stopwords.words("spanish")]
-    print(diccionario)
     return diccionario
     
 def tipoClase(pred):

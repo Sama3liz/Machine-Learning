@@ -21,26 +21,20 @@ collection = db.clases
 def index():
     if request.method == 'POST':
         text = request.form['text']
-        
         clase1=collection.distinct('clase1')
         clase2=collection.distinct('clase2')
         clase3=collection.distinct('clase3')
         clase4=collection.distinct('clase4')
         clase5=collection.distinct('clase5')
         clase6=collection.distinct('clase6')
-
         clase1=" ".join(clase1[0:505])
         clase2=" ".join(clase2[0:505])
         clase3=" ".join(clase3[0:499])
         clase4=" ".join(clase4[0:505])
         clase5=" ".join(clase5[0:505])
         clase6=" ".join(clase6[0:5299])
-
         col = [clase1,clase2,clase3,clase4,clase5,clase6]
-
-        print(len(col))
         respuesta = m.modelos(text,col)
-
         df = respuesta[1]
         return render_template('home.html', value = respuesta[0], tables=[df.to_html(classes='data', header="true")])
     else:
@@ -83,4 +77,4 @@ def about():
         return render_template('about.html')
     
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)

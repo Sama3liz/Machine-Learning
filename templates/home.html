@@ -21,7 +21,7 @@
     {% if value %}
     <label class="card text-center" for="resultados"><h5>RESULTADOS</h5></label>
     <div class="mb-2" id="resultados">
-        <input disabled class="text-bg-gray mb-1" type="text" value="{{value}}"><br>
+        <label disabled class="text-bg-gray mb-1 card text-center" for="table">{{value}}</label><br>
         {% for table in tables %}
             {{ table|safe }}
         {% endfor %}
