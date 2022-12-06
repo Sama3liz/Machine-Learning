@@ -16,10 +16,12 @@ loaded_tf_idf = pickle.load(open("static/bin/tf_idf", 'rb'))  # Con esto abres e
 index_labels = ['Modelo 1','Modelo 2','Modelo 3','Modelo 4','Modelo 5']
 
 def nlp(text):
-    text = re.sub('[^A-Za-z\u00C0-\u017F]+',' ',text)
+    print(text)
+    text = re.sub('[^A-Za-z\u00C0-\u017F]+',' ',str(text))
     text = text.lower()
     tokens = word_tokenize(text)
     diccionario = [word for word in tokens if not word in stopwords.words("spanish")]
+    print(diccionario)
     return diccionario
     
 def tipoClase(pred):
@@ -39,7 +41,7 @@ def tipoClase(pred):
     
 def modeloup(collection):
     
-    # collection=collection[1:100]
+    #collection=collection[1:100]
     resp=[]
     for i in collection:
         temp=[]
@@ -50,7 +52,9 @@ def modeloup(collection):
         temp.append(i)
         temp.append(clase)
         resp.append(temp)
+    
     return resp
+
 
 def modelos(text,collection):
     #######################MODELO 1#############################
@@ -64,7 +68,7 @@ def modelos(text,collection):
     ######################MODELOS DEL 2 AL 5###############################
     array = []
     for i,doc in enumerate(collection):
-        array.append(re.sub('[^A-Za-z\u00C0-\u017F]+', ' ',collection[i].lower())) 
+        array.append(re.sub('[^A-Za-z\u00C0-\u017F]+', ' ',str(collection[i].lower()))) 
 
 
     tokens = []   
@@ -82,7 +86,7 @@ def modelos(text,collection):
 
     D1=text
     mensaje=D1
-    D1=re.sub('[^A-Za-z\u00C0-\u017F]+',' ',D1)
+    D1=re.sub('[^A-Za-z\u00C0-\u017F]+',' ',str(D1))
     D1=D1.lower()
     txt_tokens = word_tokenize(D1)
     vtxt = [word for word in txt_tokens if not word in stopwords.words("spanish")]
@@ -143,5 +147,6 @@ def modelos(text,collection):
     clase = tipoClase(pred)
 
     colum_labels=['Clase 1','Clase 2','Clase 3','Clase 4','Clase 5','Clase 6']
+
     probabilidades = pd.DataFrame(probabilidades, index=index_labels, columns=colum_labels)
     return clase, probabilidades

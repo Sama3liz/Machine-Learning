@@ -18,7 +18,7 @@ def allowed_file(file):
 
 def nlp(text):
     text = " ".join(text)
-    text = re.sub('[^A-Za-z\u00C0-\u017F]+',' ',text)
+    text = re.sub('[^A-Za-z\u00C0-\u017F]+',' ',str(text))
     text = text.lower()
     tokens = word_tokenize(text)
     diccionario = [word for word in tokens if not word in stopwords.words("spanish")]

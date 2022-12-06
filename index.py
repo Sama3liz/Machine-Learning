@@ -13,7 +13,7 @@ app.config["UPLOAD_FOLDER"] = "static/files"
 
 # DB Connection
 client = MongoClient("mongodb+srv://prueba:6k9Zll2W0hoLMenG@cluster0.dutodri.mongodb.net/?retryWrites=true&w=majority")
-db = client.prueba
+db = client.dataset
 collection = db.clases
 
 # Routes
@@ -68,7 +68,7 @@ def upload():
             #BORRAR ARCHIVO
             os.remove(file)
             resp_analisis = os.path.join(app.root_path, app.config['UPLOAD_FOLDER'])
-            return send_from_directory(directory=resp_analisis, filename='analisis.xlsx')
+            return send_from_directory(path=resp_analisis, filename='analisis.xlsx')
         else:
             print("Tipo de archivo no permitido!")
             return redirect(url_for('upload'))
