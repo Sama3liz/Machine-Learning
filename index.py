@@ -6,6 +6,7 @@ import static.py.modelos as m
 import static.py.functions as f
 import os
 from werkzeug.utils import secure_filename
+import xlrd
 
 # Config
 app = Flask(__name__)
@@ -45,24 +46,18 @@ def upload():
     if request.method == 'POST':
         file = request.files['uploadFile']
         filename = secure_filename(file.filename)
-        print(file)
-        print(f.allowed_file(filename))
         if file and f.allowed_file(filename):
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             file=os.path.join(app.config["UPLOAD_FOLDER"],filename)
-            print('PATH',file)
             excel_data = pd.read_excel(file)
-            #print('DATA EXCEL')
-            #print(np.shape(excel_data))
             arr=excel_data.to_numpy()
             data=m.modeloup(arr)
             analisis = pd.DataFrame(data, columns=['VALOR DE INGRESO','CLASIFICACION'])
             analisis.to_excel(os.path.join(app.config["UPLOAD_FOLDER"],'analisis.xlsx')) 
-
             #BORRAR ARCHIVO
             os.remove(file)
             resp_analisis = os.path.join(app.root_path, app.config['UPLOAD_FOLDER'])
-            return send_from_directory(directory=resp_analisis, filename='analisis.xlsx')
+            return send_from_directory(directory=resp_analisis, path='analisis.xlsx')
         else:
             print("Tipo de archivo no permitido!")
             return redirect(url_for('upload'))
