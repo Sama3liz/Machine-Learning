@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <br>
+    <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+        <label for="values">
+            Archivo
+        </label>
+        <br>
+        <input required type="file" name="uploadFile" id="uploadFile" accept=".xlsx">
+        <button type="submit">Enviar</button>
+    </form>
+    <br>
+</div>
+{% endblock %}

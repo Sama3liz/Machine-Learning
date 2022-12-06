@@ -1,0 +1,84 @@
+.banner-image{
+    background-image:url('../img/new_ecuador.jpg');
+    background-size: cover;
+    background-position: center;
+}
+body{
+    margin: 0;
+    padding: 0;
+    /*PARA QUE EL FOOTER QUEDE ABAJO*/
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+}
+/*decoración del footer*/
+footer{
+    background: #313131;
+    padding: 20px 50px;
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+footer .social_icon, footer .menus{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;  
+    flex-wrap: wrap;
+}
+footer .social_icon li, footer .menus li{
+    list-style: none;
+}
+footer .social_icon li a{
+    font-size: 2rem;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+}
+footer .social_icon li a:hover{
+    transform: translateY(-10px);
+}
+footer .menus li a{
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    text-decoration: none;
+    opacity: 0.75;
+}
+footer .menus li a:hover{
+    opacity: 1;
+}
+/*Decoración al texto de la parte <p>*/
+footer p{
+    color: #fff;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom:  10px;
+    font-size: 1.1em;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #c51616;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #d87676;
+}
+a{
+    color: #fff;
+    text-decoration: none;
+}
+.nav-link{
+    color: #fff;
+}

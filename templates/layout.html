@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discriminación Ecuatoriano</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}"/>
+    <!-- Icon -->
+    <link rel="shortcut icon" href="{{ url_for('static',filename='img/favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg text-light bg-dark fixed-top p-md-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url_for('index') }}">Discriminación Ecuatoriano</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="mx-auto"></div>
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Inicio</a>
+                    <a class="nav-link active" aria-current="page" href="{{ url_for('upload') }}">Cargar</a>
+                    <a class="nav-link active" aria-current="page" href="{{ url_for('about') }}">Acerca de</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--COLOCAR IMAGEN EN EL BANNER-->
+    <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
+        <div class="content text-center">
+            <h1 style="color: white;">DISCRIMINACIÓN</h1>
+            <h1 style="color: rgb(255, 254, 253);">ECUATORIANO</h1>
+        </div>
+    </div>
+    {% block content %}
+    {% endblock %}
+    <footer>
+        <ul class="social_icon">
+            <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></ion-icon></a></li>
+            <li><a href="#"><ion-icon name="logo-github"></ion-icon></a></li>
+            <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+            <li><a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a></li>
+        </ul>
+        <ul class="menus">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Contato</a></li>
+            <li><a href="#">Servicio</a></li>
+            <li><a href="#">Equipo</a></li>
+            <li><a href="https://www.flaticon.es/iconos-gratis/condor" title="cóndor iconos">Icono</a></li>
+        </ul>
+        <p>&copy;2022 Grupo X | Todos los derechos reservados</p>
+    </footer>
+    <!--SCRIPTS-->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="{{ url_for('static',filename='js/bootstrap.bundle.js') }}"></script>
+    <script type="text/javascript">
+        var nav = document.querySelector('nav');
+        window.addEventListener('scroll', function () {
+            if (window.pageYOffset > 100) {
+            nav.classList.add('bg-dark', 'shadow');
+            } else {
+            nav.classList.remove('bg-dark', 'shadow');
+            }
+        });
+    </script>
+</body>
+</html>

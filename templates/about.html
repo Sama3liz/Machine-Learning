@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container my-3 d-grid gap-1">
+    <section>
+        <div class="container">
+            <h1 style="text-align: center;">MOSTRANDO INTEGRANTES </h1>
+            <!--PONIENDO INTEGRANTES-->
+            <div class="row row-cols-1 row-cols-md-6 g-6">
+                <div class="col">
+                    <div class="card text-center" style="width: 10rem; ">
+                        <img src="{{ url_for('static',filename='img/jean.jpg') }}" class="card-img-top" style="height: 45%;" alt="...">
+                        <div class="card text-center">
+                            <h5 class="card-title">Jean</h5>                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-center" style="width: 10rem; ">
+                        <img src="{{ url_for('static',filename='img/edi_new.png') }}" class="card-img-top" style="height: 45%;" alt="...">
+                        <div class="card text-center">
+                            <h5 class="card-title">Edison</h5>                        
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-center" style="width: 10rem; ">
+                        <img src="{{ url_for('static',filename='img/milton_new.png') }}" class="card-img-top" style="height: 45%;" alt="...">
+                        <div class="card text-center">
+                            <h5 class="card-title">Milton</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-center" style="width: 10rem; ">
+                        <img src="{{ url_for('static',filename='img/david_new.png') }}" class="card-img-top" style="height: 45%;" alt="...">
+                        <div class="card text-center">
+                            <h5 class="card-title">David</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-center" style="width: 10rem; ">
+                        <img src="{{ url_for('static',filename='img/nathy_new.png') }}" class="card-img-top" style="height: 45%;" alt="...">
+                        <div class="card text-center">
+                            <h5 class="card-title">Nathaly</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-center" style="width: 10rem; ">
+                        <img src="{{ url_for('static',filename='img/edgar_new.png') }}" class="card-img-top" style="height: 45%;" alt="...">
+                        <div class="card text-center">
+                            <h5 class="card-title">Edgar</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <!-- VIDEO -->
+        <div class="container">
+            <h1 style="text-align: center;">ENTRENANDO EL ALGORITMO </h1>
+            <div class="container my-4 d-grid gap-1 ">
+                <div class="ratio ratio-16x9">
+                    <iframe src="{{ url_for('static',filename='img/entrenando_algoritmo.mp4') }}" title="XD" allowfullscreen></iframe>   
+                </div>
+            </div>
+        </div>
+    </section>
+</div> 
+{% endblock %}

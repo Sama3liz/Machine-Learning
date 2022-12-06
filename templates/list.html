@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container mt-1">
+    <form action="{{ url_for('show') }}" method="POST">
+        <select name= "classSelect" class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            {% for title in titles %}
+                <option value="{{ title }}">{{ title }}</option>
+            {% endfor %}
+            </div>
+        </select>
+        <button class="mt-1" type="submit">Consultar</button>
+    </form>
+    
+    {% if values %}
+    <label for="values">{{ name }}</label><br>
+    {% endif %}
+    <textarea class="mt-1" name="values" id="values" cols="50" rows="10" readonly>
+    {% if values %}
+        {% for value in values %}
+            {{value}}
+        {% endfor %}
+    {% endif %}    
+    </textarea>    
+</div>
+{% endblock %}
