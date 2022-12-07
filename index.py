@@ -49,14 +49,14 @@ def upload():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             file=os.path.join(app.config["UPLOAD_FOLDER"],filename)
             excel_data = pd.read_excel(file)
+            excel_data = pd.DataFrame(excel_data).dropna(axis=1, how='all')
+            excel_data=excel_data[excel_data.columns[0]].str.replace('[^A-Za-z\u00C0-\u017F]+', ' ').str.lower()
             arr=excel_data.to_numpy()
             data=m.modeloup(arr)
             analisis = pd.DataFrame(data, columns=['VALOR DE INGRESO','CLASIFICACION'])
-            analisis.to_excel(os.path.join(app.config["UPLOAD_FOLDER"],'analisis.xlsx')) 
-            #BORRAR ARCHIVO
-            os.remove(file)
+            analisis.to_excel(os.path.join(app.config["UPLOAD_FOLDER"],'analisis.xlsx'))
+            os.remove(file) 
             resp_analisis = os.path.join(app.root_path, app.config['UPLOAD_FOLDER'])
-            
             return send_from_directory(directory=resp_analisis, path='analisis.xlsx')
         else:
             print("Tipo de archivo no permitido!")
@@ -72,4 +72,4 @@ def about():
         return render_template('about.html')
     
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
