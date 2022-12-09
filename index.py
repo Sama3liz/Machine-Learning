@@ -19,8 +19,13 @@ collection = db.clases
 # Routes
 @app.route('/', methods=['GET','POST'])
 def index():
+    
     if request.method == 'POST':
-        text = request.form['text']
+        
+        print('PETICION ENVIADA')
+        text = request.form['message']
+        
+        print(text)
         clase1=collection.distinct('clase1')
         clase2=collection.distinct('clase2')
         clase3=collection.distinct('clase3')
@@ -36,9 +41,12 @@ def index():
         col = [clase1,clase2,clase3,clase4,clase5,clase6]
         respuesta = m.modelos(text,col)
         df = respuesta[1]
-        return render_template('home.html', value = respuesta[0], tables=[df.to_html(classes='data', header="true")])
+        print('RESPUESTA:')
+        print(df)
+        return render_template('layout.html', flash_message=True, text=text, clase=respuesta[0], tables=[df.to_html(classes='data', header="true")])
+        #return render_template('home.html', value = respuesta[0], tables=[df.to_html(classes='data', header="true")])
     else:
-        return render_template('home.html')
+        return render_template('layout.html')
 
 @app.route('/upload', methods=['GET','POST'])
 def upload():
@@ -57,7 +65,7 @@ def upload():
             analisis.to_excel(os.path.join(app.config["UPLOAD_FOLDER"],'analisis.xlsx'))
             os.remove(file) 
             resp_analisis = os.path.join(app.root_path, app.config['UPLOAD_FOLDER'])
-            return send_from_directory(directory=resp_analisis, path='analisis.xlsx')
+            return send_from_directory(directory=resp_analisis, filename='analisis.xlsx')
         else:
             print("Tipo de archivo no permitido!")
             return redirect(url_for('upload'))

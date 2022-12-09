@@ -13,7 +13,7 @@ import textdistance
 
 loaded_model = pickle.load(open("static/bin/modelo1", 'rb'))  # abrir modelo 
 loaded_tf_idf = pickle.load(open("static/bin/tf_idf", 'rb'))  # Con esto abres el modelo las 2 lineas 
-index_labels = ['Modelo 1','Modelo 2','Modelo 3','Modelo 4','Modelo 5']
+index_labels = ['Naive Bayes','Jackard','Coseno','Tversky','Tanimoto']
 pattern = re.compile(r'\b(' + r'|'.join(stopwords.words('spanish')) + r')\b\s*')
 
 def nlp(text):
@@ -107,7 +107,7 @@ def modelos(text,collection):
 
     clase = tipoClase(pred)
 
-    colum_labels=['Clase 1','Clase 2','Clase 3','Clase 4','Clase 5','Clase 6']
+    colum_labels=['Insultos Sexuales','Insultos Discriminatorios','Insultos Xenofobias','Insultos por casta','Insultos internacionales','No es insulto']
 
     probabilidades = pd.DataFrame(probabilidades, index=index_labels, columns=colum_labels)
     return clase, probabilidades
