@@ -65,7 +65,7 @@ def upload():
             analisis.to_excel(os.path.join(app.config["UPLOAD_FOLDER"],'analisis.xlsx'))
             os.remove(file) 
             resp_analisis = os.path.join(app.root_path, app.config['UPLOAD_FOLDER'])
-            return send_from_directory(directory=resp_analisis, filename='analisis.xlsx', name='analisis.xlsx')
+            return send_from_directory(directory=resp_analisis, filename='analisis.xlsx')
         else:
             print("Tipo de archivo no permitido!")
             return redirect(url_for('upload'))
@@ -80,4 +80,4 @@ def about():
         return render_template('about.html')
     
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
