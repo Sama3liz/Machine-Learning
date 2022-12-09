@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
-        <!-- Vendor JS Files -->
-        <script href="{{ url_for('static',filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ url_for('static',filename='assets/vendor/aos/aos.js')}} "></script>
-        <script src="{{ url_for('static',filename='assets/vendor/glightbox/js/glightbox.min.js')}} "></script>
-        <script src="{{ url_for('static',filename='assets/vendor/isotope-layout/isotope.pkgd.min.js')}} "></script>
-        <script src="{{ url_for('static',filename='assets/vendor/swiper/swiper-bundle.min.js')}} "></script>
-        <script src="{{ url_for('static',filename='assets/vendor/purecounter/purecounter_vanilla.js')}}"></script>
-        <script src="{{ url_for('static',filename='assets/vendor/php-email-form/validate.js')}} "></script>
-    
-        <!-- Template Main JS File -->
-        <script src="{{ url_for('static',filename='assets/js/main.js')}} "></script>
+    <!-- Vendor JS Files -->
+    <script href="{{ url_for('static',filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='assets/vendor/aos/aos.js')}} "></script>
+    <script src="{{ url_for('static',filename='assets/vendor/glightbox/js/glightbox.min.js')}} "></script>
+    <script src="{{ url_for('static',filename='assets/vendor/isotope-layout/isotope.pkgd.min.js')}} "></script>
+    <script src="{{ url_for('static',filename='assets/vendor/swiper/swiper-bundle.min.js')}} "></script>
+    <script src="{{ url_for('static',filename='assets/vendor/purecounter/purecounter_vanilla.js')}}"></script>
+    <script src="{{ url_for('static',filename='assets/vendor/php-email-form/validate.js')}} "></script>
+
+    <!-- Template Main JS File -->
+    <script src="{{ url_for('static',filename='assets/js/main.js')}} "></script>
 
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,7 +22,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}" />
     <!-- Icon -->
     <link rel="shortcut icon" href="{{ url_for('static',filename='img/favicon.ico') }}" type="image/x-icon">
 
@@ -32,10 +33,11 @@
     <link href="{{ url_for('static',filename='assets/vendor/aos/aos.css') }}" rel="stylesheet">
     <link href="{{ url_for('static',filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static',filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
-    
+
     <!-- Template Main CSS File -->
     <link href="{{ url_for('static',filename='assets/css/main.css')}}" rel="stylesheet">
 </head>
+
 <body>
 
     <!-- ======= Header ======= -->
@@ -83,7 +85,7 @@
     </section>
     <!-- End Hero Section -->
 
-    
+
 
     <main id="main">
 
@@ -93,32 +95,36 @@
 
                 <div class="row justify-content-between gy-4">
 
-                    <div>
-                        <p>Deseas analizar tu propio conjunto de datos?</p>
-                        <a href="{{ url_for('upload') }}"><button class="btn btn-primary">Analizar dataset</button></a>
-                    </div>
+
+
 
                     <div class="col-lg-5" data-aos="fade">
-                        <form method="post" class="php-email-form">
+                        <p align="center">Deseas analizar tu propio conjunto de datos?</p>
+                        <div>
+                            <center><a href="{{ url_for('upload') }}"><button class="btn btn-danger">Analizar dataset</button></a></center>
+                        </div>
+                        <p></p>
+                        <form method="post">
                             <h3>Clasificacion del Texto</h3>
                             <p>Por favor ingresar el texto que desea clasificar dentro del cuadro de texto</p>
                             <div class="row gy-3">
 
                                 <div class="col-md-12">
-                                    <textarea class="form-control" name="message" rows="6" placeholder="Mensaje" required></textarea>
+                                    <textarea class="form-control" name="message" rows="11" placeholder="Mensaje" required></textarea>
                                 </div>
 
                                 <table>
                                     <tr>
-                                        <button type="submit">Enviar Texto</button>
+                                        <button class="btn btn-danger">Enviar Texto</button>
                                     </tr>
+
                                 </table>
 
                             </div>
                         </form>
-                        
+
                     </div>
-                    
+
                     <!-- End Quote Form -->
                     <div class="col-lg-6 d-flex align-items-center" data-aos="fade-up">
                         <div class="content" id="respuesta">
@@ -129,9 +135,7 @@
 
                     {% if tables %}
                     <div class="mb-2" id="displaytable" style="visibility: hidden">
-                        {% for table in tables %}
-                            {{ table|safe }}
-                        {% endfor %}
+                        {% for table in tables %} {{ table|safe }} {% endfor %}
                     </div>
                     {% endif %}
                 </div>
@@ -146,28 +150,76 @@
     </main>
     <!-- End #main -->
 
-
-
-    <!-- ======= Footer ======= -->
     <footer id="footer " class="footer ">
 
         <div class="footer-content position-relative ">
             <div class="container ">
                 <div class="row ">
 
-                    
+                    <div class="col-lg-4 col-md-6 ">
                         <div class="footer-info ">
-                            <h3>MACHINELEARNING_UPS</h3>
-                            
+                            <h3>Discriminación Ecuatoriana</h3>
+                            <p>
+                                002 Grupo 2 <br> Quito , ECU<br><br>
+                                <strong>Phone:</strong> +593 1234567890<br>
+                                <strong>Email:</strong> grupo2_ups@hotmail.com<br>
+                            </p>
                             <div class="social-links d-flex mt-3 ">
                                 <a href="# " class="d-flex align-items-center justify-content-center "><i class="bi bi-twitter "></i></a>
                                 <a href="# " class="d-flex align-items-center justify-content-center "><i class="bi bi-facebook "></i></a>
                                 <a href="# " class="d-flex align-items-center justify-content-center "><i class="bi bi-instagram "></i></a>
                                 <a href="# " class="d-flex align-items-center justify-content-center "><i class="bi bi-linkedin "></i></a>
                             </div>
-                            
                         </div>
-                    
+                    </div>
+                    <!-- End footer info column-->
+
+                    <div class="col-lg-2 col-md-3 footer-links ">
+                        <h4>⠀⠀⠀⠀⠀⠀</h4>
+                        <ul>
+                            <li><a href="# ">⠀</a></li>
+                            <li><a href="# ">⠀</a></li>
+                            <li><a href="# ">⠀</a></li>
+                            <li><a href="# ">⠀</a></li>
+                            <li><a href="# ">⠀</a></li>
+                        </ul>
+                    </div>
+                    <!-- End footer links column-->
+
+                    <div class="col-lg-2 col-md-3 footer-links ">
+                        <h4>⠀⠀⠀⠀⠀⠀</h4>
+                        <ul>
+                            <li><a href="# ">⠀</a></li>
+                            <li><a href="# ">⠀</a></li>
+                            <li><a href="# ">⠀</a></li>
+                            <li><a href="# ">⠀</a></li>
+                            <li><a href="# ">⠀</a></li>
+                        </ul>
+                    </div>
+                    <!-- End footer links column-->
+
+                    <div class="col-lg-2 col-md-3 footer-links ">
+                        <h4>⠀⠀⠀⠀⠀⠀</h4>
+                        <ul>
+                            <li><a href="# ">⠀</a></li>
+                            <li><a href="# ">⠀</a></li>
+                            <li><a href="# ">⠀</a></li>
+                            <li><a href="# ">⠀</a></li>
+                            <li><a href="# ">⠀</a></li>
+                        </ul>
+                    </div>
+                    <!-- End footer links column-->
+
+                    <div class="col-lg-2 col-md-3 footer-links ">
+                        <h4>Links</h4>
+                        <ul>
+                            <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                            <li><a href="{{ url_for('upload') }}" class="active">Cargar</a></li>
+                            <li><a href="{{ url_for('about') }}">Acerca de</a></li>
+                            <li><a href="https://www.ups.edu.ec/" target="_blank">UPS Sur</a></li>
+                        </ul>
+                    </div>
+                    <!-- End footer links column-->
 
                 </div>
             </div>
@@ -176,20 +228,15 @@
         <div class="footer-legal text-center position-relative ">
             <div class="container ">
                 <div class="copyright ">
-                    &copy; Copyright <strong><span>MACHINELEARNING_UPS</span></strong>. All Rights Reserved
+                    &copy; Copyright <strong><span>Grupo 2</span></strong>. Todos los derechos reservados
                 </div>
-                <div class="credits ">
-                    <!-- All the links in the footer should remain intact. -->
-                    <!-- You can delete the links only if you purchased the pro version. -->
-                    <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/upconstruction-bootstrap-construction-website-template/ -->
-                    Designed by <a href="https://bootstrapmade.com/ ">BootstrapMade</a>
-                </div>
+
             </div>
         </div>
 
     </footer>
-    <!-- End Footer -->
+
+
 
     <a href="# " class="scroll-top d-flex align-items-center justify-content-center "><i class="bi bi-arrow-up-short "></i></a>
 
@@ -199,57 +246,63 @@
     {% if flash_message == True %}
 
     <script type="text/javascript">
+
+        let tabla=document.querySelector('#displaytable > table')
+        tabla.className='table'
+        let head=document.querySelector('#displaytable > table > thead')
+        head.className='thead-dark'
         let text = '{{ text }}';
         let clase = '{{ clase }}';
-        let resp=document.createElement('h3')
-        resp.textContent='Su consulta se clasifica como:'+clase
+        let resp = document.createElement('h3')
+        resp.textContent = 'Su consulta se clasifica como:' + clase
 
-        let cont=document.createElement('div')
-
+        let cont = document.createElement('div')
+        let p = document.createElement('p')
+        let p1 = document.createElement('p')
         var img = document.createElement('img');
 
-        if(clase=='Insultos Sexuales (clase 1)'){
-            img.src='../static/img/clase1.jpg'
+        if (clase == 'Insultos Sexuales (clase 1)') {
+            img.src = '../static/img/clase1.jpg'
         }
 
-        if(clase=='Insultos Discriminatorios (clase 2)'){
-            img.src='../static/img/clase2.jpg'
+        if (clase == 'Insultos Discriminatorios (clase 2)') {
+            img.src = '../static/img/clase2.jpg'
         }
-        if(clase=='Insultos Xenofobias (clase 3)'){
-            img.src='../static/img/clase3.jpg'
+        if (clase == 'Insultos Xenofobias (clase 3)') {
+            img.src = '../static/img/clase3.jpg'
         }
-        if(clase=='Insultos por casta (clase 4)'){
-            img.src='../static/img/clase4.jpg'
+        if (clase == 'Insultos por casta (clase 4)') {
+            img.src = '../static/img/clase4.jpg'
         }
-        if(clase=='Insultos internacionales (clase 5)'){
-            img.src='../static/img/clase5.jpg'
+        if (clase == 'Insultos internacionales (clase 5)') {
+            img.src = '../static/img/clase5.jpg'
         }
-        if(clase=='No es un insulto (clase 6)'){
-            img.src='../static/img/clase6.jpg'
+        if (clase == 'No es un insulto (clase 6)') {
+            img.src = '../static/img/clase6.jpg'
         }
         img.style.height = '300px';
         img.style.width = '200px';
-
         cont.appendChild(img)
-        bot=document.createElement('button')
-        bot.textContent='Mostrar detalles'
-        bot.className="btn btn-primary"
-        
+        cont.setAttribute("align", "center")
+        cont.appendChild(p)
+        cont.appendChild(p1)
+        bot = document.createElement('button')
+        bot.textContent = 'Mostrar detalles'
+        bot.className = "btn btn-danger"
+        bot.style.display = 'block'
+        bot.style.margin = '0 auto'
         bot.addEventListener('click', function handleClick() {
-        
-        if (document.getElementById("displaytable").style.visibility === "hidden")
-        document.getElementById("displaytable").style.visibility="visible";
-        else
-        document.getElementById("displaytable").style.visibility="hidden";
+
+            if (document.getElementById("displaytable").style.visibility === "hidden")
+                document.getElementById("displaytable").style.visibility = "visible";
+            else
+                document.getElementById("displaytable").style.visibility = "hidden";
         });
 
         document.getElementById('insulto').style.visibility = "hidden";
         document.getElementById('respuesta').appendChild(resp)
         document.getElementById('respuesta').appendChild(cont)
         document.getElementById('respuesta').appendChild(bot)
-
-        
-        
     </script>
     {% endif %}
 </body>
