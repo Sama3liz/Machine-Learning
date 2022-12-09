@@ -7,9 +7,6 @@ import static.py.functions as f
 import os
 from werkzeug.utils import secure_filename
 
-
-#Timeout
-request.post('/upload',timeout=100)
 # Config
 app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = "static/files"
