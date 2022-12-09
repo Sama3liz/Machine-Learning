@@ -40,10 +40,10 @@ def modeloup(collection):
     resp=[]
     for i in collection:
         temp=[]
-        X_test = loaded_tf_idf.transform([pattern.sub('', str(i))]).toarray()
+        X_test = loaded_tf_idf.transform([pattern.sub('', str(nlp(i)))]).toarray()
         pred = loaded_model.predict(X_test)
         clase = tipoClase(pred)
-        temp.append(i)
+        temp.append(pattern.sub('', str(nlp(i))))
         temp.append(clase)
         resp.append(temp)
     return resp

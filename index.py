@@ -57,8 +57,6 @@ def upload():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             file=os.path.join(app.config["UPLOAD_FOLDER"],filename)
             excel_data = pd.read_excel(file)
-            excel_data = pd.DataFrame(excel_data).dropna(axis=1, how='all')
-            excel_data=excel_data[excel_data.columns[0]].str.replace('[^A-Za-z\u00C0-\u017F]+', ' ').str.lower()
             arr=excel_data.to_numpy()
             data=m.modeloup(arr)
             analisis = pd.DataFrame(data, columns=['VALOR DE INGRESO','CLASIFICACION'])
